@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>peakism — under construction</title>
+<meta name="description" content="Peakism is an independent software studio. The public site is under construction; the work is already shipping.">
+<meta name="theme-color" content="#f2efe9">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peakism">
+<meta property="og:title" content="peakism — under construction">
+<meta property="og:description" content="An independent software studio. Small, fast, careful software. The front door is still being built.">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --paper: #f2efe9;
+    --ink: #100f0e;
+    --muted: #6b665c;
+    --line: rgb(16 15 14 / 0.14);
+    --accent: #b03a12;
+    --gutter: clamp(1.25rem, 4vw, 4rem);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a { color: inherit; }
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 0.75rem 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    z-index: 10;
+  }
+  .skip:focus { left: 1rem; top: 1rem; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.4rem var(--gutter);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 3;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-size: 1.05rem;
+  }
+  .brand svg { width: 1.1rem; height: 1.1rem; }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgb(176 58 18 / 0.45);
+    animation: pulse 2.8s ease-out infinite;
+  }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 0.55rem rgb(176 58 18 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(176 58 18 / 0); }
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3rem, 9vh, 7rem) var(--gutter) 0;
+  }
+  .eyebrow {
+    display: flex;
+    gap: 0.55rem;
+    margin: 0 0 clamp(1rem, 3vh, 2rem);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(3.6rem, 15.5vw, 12.5rem);
+    line-height: 0.82;
+    letter-spacing: -0.055em;
+    font-weight: 600;
+  }
+  h1 .caret {
+    display: block;
+    font-size: 0.3em;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--accent);
+    margin-bottom: 0.25em;
+    transform: translateX(-0.04em);
+  }
+  .lede {
+    max-width: 34ch;
+    margin: clamp(1.5rem, 4vh, 2.5rem) 0 0;
+    font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+  }
+  .lede strong { font-weight: 600; }
+  .rule {
+    max-width: 46rem;
+    margin: clamp(2rem, 5vh, 3rem) 0 1.25rem;
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1.25rem 2rem;
+    max-width: 46rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pillars h2 {
+    margin: 0 0 0.3rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .pillars p { margin: 0; font-size: 0.95rem; line-height: 1.45; color: #2a2723; }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: clamp(2rem, 5vh, 3rem) 0 clamp(3rem, 8vh, 5rem);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem 1.3rem;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: #2b2926; }
+  .btn.ghost:hover { background: rgb(16 15 14 / 0.05); }
+  .btn .arrow { transition: transform 160ms ease; }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  .ridge {
+    position: relative;
+    z-index: 0;
+    margin-top: -1px;
+    line-height: 0;
+    pointer-events: none;
+  }
+  .ridge svg { display: block; width: 100%; height: auto; }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.2rem var(--gutter) 1.6rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 3;
+    background: var(--paper);
+  }
+  footer p { margin: 0; }
+  footer a { text-decoration: none; border-bottom: 1px solid transparent; }
+  footer a:hover { border-bottom-color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+    .btn, .btn .arrow { transition: none; }
+  }
+  @media (max-width: 40rem) {
+    .pillars { grid-template-columns: 1fr; }
+    .ridge svg { width: 150%; margin-left: -25%; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <a class="brand" href="./" aria-label="Peakism, home">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 53 32 11l23 42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    peakism
+  </a>
+  <p class="status"><span class="dot" aria-hidden="true"></span>Under construction</p>
+</header>
+
+<main id="main">
+  <p class="eyebrow"><span>Independent software studio</span><span aria-hidden="true">·</span><span>Est. 2026</span></p>
+
+  <h1><span class="caret" aria-hidden="true">∧</span>peakism</h1>
+
+  <p class="lede">We build <strong>small, fast, careful software</strong> — apps, services and the infrastructure under them. The front door is still being built. The work is already out there.</p>
+
+  <hr class="rule">
+
+  <ul class="pillars">
+    <li>
+      <h2>Apps</h2>
+      <p>Tools people keep open all day. Native where it matters, quiet everywhere else.</p>
+    </li>
+    <li>
+      <h2>Systems</h2>
+      <p>APIs, services and cloud pieces that stay up without a team watching them.</p>
+    </li>
+    <li>
+      <h2>Extensions</h2>
+      <p>Small parts that make other software better, shipped as formats others can build on.</p>
+    </li>
+  </ul>
+
+  <div class="actions">
+    <a class="btn primary" href="mailto:84sofik@gmail.com?subject=Peakism">Say hello <span class="arrow" aria-hidden="true">→</span></a>
+    <a class="btn ghost" href="https://github.com/sofikuw" rel="noopener">See the work <span aria-hidden="true">↗</span></a>
+  </div>
+</main>
+
+<div class="ridge" aria-hidden="true">
+  <svg viewBox="0 0 1440 300" preserveAspectRatio="none" role="presentation">
+    <line x1="0" y1="262" x2="1440" y2="262" stroke="#100f0e" stroke-opacity="0.14"/>
+    <path d="M0 300 0 214 96 176 150 200 236 132 300 170 372 118 452 168 520 146 604 196 690 300Z" fill="#100f0e" fill-opacity="0.045"/>
+    <path d="M0 214 96 176 150 200 236 132 300 170 372 118 452 168 520 146 604 196 690 300" fill="none" stroke="#100f0e" stroke-opacity="0.3" stroke-width="1.5"/>
+    <path d="M560 300 690 208 760 236 848 122 930 190 1004 160 1090 206 1176 170 1268 224 1340 198 1440 240 1440 300Z" fill="#100f0e" fill-opacity="0.075"/>
+    <path d="M560 300 690 208 760 236 848 122 930 190 1004 160 1090 206 1176 170 1268 224 1340 198 1440 240" fill="none" stroke="#100f0e" stroke-opacity="0.55" stroke-width="1.6"/>
+    <path d="M848 122V74" stroke="#b03a12" stroke-opacity="0.5" stroke-dasharray="3 4"/>
+    <path d="M838 66 848 48l10 18" fill="none" stroke="#b03a12" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<footer>
+  <p>© 2026 Peakism. All rights reserved.</p>
+  <p><a href="mailto:84sofik@gmail.com">Email</a> · <a href="https://github.com/sofikuw" rel="noopener">GitHub</a> · <a href="./LICENSE">License</a></p>
+</footer>
+</body>
+</html>

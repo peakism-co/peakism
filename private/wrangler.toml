@@ -1,0 +1,10 @@
+name = "peakism-private"
+account_id = "1777002bf434878092e51eda7270ee97"
+compatibility_date = "2026-11-18"
+main = "src/worker.js"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
