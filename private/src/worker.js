@@ -12,14 +12,14 @@ function safeEqual(a, b) {
 export default {
   async fetch(request, env) {
     const given = request.headers.get('Authorization') || '';
-    const valid = Boolean(env.PEAKIZM_USER && env.PEAKIZM_PASS);
-    const expected = valid ? 'Basic ' + btoa(`${env.PEAKIZM_USER}:${env.PEAKIZM_PASS}`) : '';
+    const valid = Boolean(env.PEAQISM_USER && env.PEAQISM_PASS);
+    const expected = valid ? 'Basic ' + btoa(`${env.PEAQISM_USER}:${env.PEAQISM_PASS}`) : '';
 
     if (!valid || !safeEqual(given, expected)) {
-      return new Response('peakizm internal — credentials required\n', {
+      return new Response('peaqism internal — credentials required\n', {
         status: 401,
         headers: {
-          'WWW-Authenticate': 'Basic realm="peakizm internal", charset="UTF-8"',
+          'WWW-Authenticate': 'Basic realm="peaqism internal", charset="UTF-8"',
           'Cache-Control': 'no-store',
           'X-Robots-Tag': 'noindex, nofollow',
         },
