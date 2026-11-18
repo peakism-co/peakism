@@ -103,12 +103,12 @@
   main {
     position: relative;
     z-index: 1;
-    padding: clamp(3rem, 9vh, 7rem) var(--gutter) 0;
+    padding: clamp(2rem, 6vh, 4.5rem) var(--gutter) 0;
   }
   .eyebrow {
     display: flex;
     gap: 0.55rem;
-    margin: 0 0 clamp(1rem, 3vh, 2rem);
+    margin: 0 0 clamp(0.9rem, 2.5vh, 1.6rem);
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -116,7 +116,7 @@
   }
   h1 {
     margin: 0;
-    font-size: clamp(3.6rem, 15.5vw, 12.5rem);
+    font-size: clamp(3.4rem, 14vw, 10.5rem);
     line-height: 0.82;
     letter-spacing: -0.055em;
     font-weight: 600;
@@ -166,7 +166,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin: clamp(2rem, 5vh, 3rem) 0 clamp(3rem, 8vh, 5rem);
+    margin: clamp(1.75rem, 4vh, 2.5rem) 0 clamp(1.5rem, 4vh, 2.75rem);
   }
   .btn {
     display: inline-flex;
@@ -191,7 +191,8 @@
   .ridge {
     position: relative;
     z-index: 0;
-    margin-top: -1px;
+    width: min(68%, 780px);
+    margin: clamp(-6rem, -8vh, -3rem) 0 0 auto;
     line-height: 0;
     pointer-events: none;
   }
@@ -221,7 +222,7 @@
   }
   @media (max-width: 40rem) {
     .pillars { grid-template-columns: 1fr; }
-    .ridge svg { width: 150%; margin-left: -25%; }
+    .ridge { width: 165%; margin: 0.5rem 0 0 -32%; }
   }
 </style>
 </head>
@@ -237,7 +238,7 @@
 </header>
 
 <main id="main">
-  <p class="eyebrow"><span>Independent software studio</span><span aria-hidden="true">·</span><span>Est. 2026</span></p>
+  <p class="eyebrow"><span>Independent software studio</span></p>
 
   <h1><span class="caret" aria-hidden="true">∧</span>peakism</h1>
 

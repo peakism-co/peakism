@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>peakism — internal</title>
+<meta name="theme-color" content="#f2efe9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --paper:#f2efe9; --ink:#100f0e; --muted:#6b665c; --line:rgb(16 15 14 / .14);
+          --accent:#b03a12; --card:#faf8f4; --gutter:clamp(1.1rem,3.5vw,2.75rem); }
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+         padding:1.1rem var(--gutter);border-bottom:1px solid var(--line)}
+  .brand{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;letter-spacing:-.03em}
+  .brand svg{width:1.1rem;height:1.1rem}
+  .tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+       border:1px solid var(--line);border-radius:999px;padding:.2rem .5rem;margin-left:.35rem}
+  .head-meta{display:flex;gap:1rem;align-items:center;font-size:.75rem;color:var(--muted);
+             letter-spacing:.06em;text-transform:uppercase;margin:0}
+  main{max-width:1120px;margin:0 auto;padding:clamp(2rem,5vh,3.5rem) var(--gutter) 4rem}
+  h1{margin:0;font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1;letter-spacing:-.045em;font-weight:600}
+  .lede{max-width:56ch;margin:.9rem 0 0;color:#2a2723;line-height:1.5;font-size:1rem}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:1px;
+         background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+         margin:2rem 0}
+  .stat{background:var(--card);padding:1rem 1.1rem}
+  .stat b{display:block;font-size:1.9rem;line-height:1;letter-spacing:-.04em;font-weight:600}
+  .stat span{display:block;margin-top:.35rem;font-size:.7rem;letter-spacing:.14em;
+             text-transform:uppercase;color:var(--muted)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .card-h{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+          padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
+  .card-h h2{margin:0;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+             color:var(--muted);font-weight:500}
+  .card-h p{margin:0;font-size:.72rem;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th{text-align:left;font-weight:500;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;
+     color:var(--muted);padding:.6rem 1.1rem;border-bottom:1px solid var(--line)}
+  td{padding:.7rem 1.1rem;border-bottom:1px solid rgb(16 15 14 / .07);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  .proj{font-weight:600;letter-spacing:-.015em;text-decoration:none;border-bottom:1px solid transparent}
+  .proj:hover{border-bottom-color:var(--ink)}
+  .desc{display:block;color:var(--muted);font-size:.8rem;margin-top:.18rem;max-width:46ch}
+  .vis{font-size:.78rem;color:var(--muted)}
+  .vis::before{content:"";display:inline-block;width:.4rem;height:.4rem;border-radius:50%;
+               background:var(--muted);margin-right:.4rem;vertical-align:.05em;opacity:.55}
+  .vis.p::before{background:var(--accent);opacity:.8}
+  .badge{display:inline-block;font-size:.72rem;padding:.18rem .5rem;border-radius:999px;
+         border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .badge.own{border-color:rgb(176 58 18 / .35);color:var(--accent);background:rgb(176 58 18 / .06)}
+  time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.82rem}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem;margin-top:1rem}
+  .card dl{margin:0;padding:.6rem 1.1rem 1rem}
+  .card dt{font-size:.78rem;font-weight:600;margin-top:.7rem}
+  .card dd{margin:.15rem 0 0;font-size:.82rem;color:var(--muted);line-height:1.45}
+  .card dd a{text-decoration:none;border-bottom:1px solid var(--line);word-break:break-all}
+  .card dd a:hover{border-bottom-color:var(--ink);color:var(--ink)}
+  footer{max-width:1120px;margin:0 auto;padding:1.4rem var(--gutter) 3rem;
+         font-size:.75rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+         justify-content:space-between;border-top:1px solid var(--line)}
+  @media (max-width:48rem){
+    thead{display:none}
+    tr{display:grid;grid-template-columns:1fr 1fr;gap:.15rem .8rem;padding:.9rem 1.1rem;
+       border-bottom:1px solid rgb(16 15 14 / .08)}
+    td{display:block;padding:0;border:0}
+    td:first-child{grid-column:1 / -1;margin-bottom:.35rem}
+    td[data-label="Updated"]{display:none}
+    td[data-label="Stack"],td[data-label="Visibility"],td[data-label="License"]{font-size:.8rem}
+    td[data-label="Stack"]::before,td[data-label="Visibility"]::before,td[data-label="License"]::before{
+      content:attr(data-label) ": ";color:var(--muted);opacity:.7;font-size:.7rem;
+      text-transform:uppercase;letter-spacing:.1em}
+    .desc{max-width:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <span class="brand">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 53 32 11l23 42" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    peakism <span class="tag">internal</span>
+  </span>
+  <p class="head-meta"><span>18 Nov 2026</span><span>Confidential</span></p>
+</header>
+
+<main>
+  <h1>Everything we own.</h1>
+  <p class="lede">Projects, licenses and endpoints in one place. This page is password-gated and marked
+  <code>noindex</code>; it is not linked from the public site.</p>
+
+  <div class="stats">
+    <div class="stat"><b>15</b><span>Projects</span></div>
+    <div class="stat"><b>12</b><span>Public</span></div>
+    <div class="stat"><b>3</b><span>Private</span></div>
+    <div class="stat"><b>9</b><span>Under Peakism license</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-h"><h2>Projects</h2><p>sorted by last push</p></div>
+    <table>
+      <thead><tr><th scope="col">Project</th><th scope="col">Visibility</th><th scope="col">Stack</th><th scope="col">License</th><th scope="col">Updated</th></tr></thead>
+      <tbody>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/peakism" rel="noopener">peakism</a>
+          <span class="desc">Peakism — brand, org license and web presence</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">HTML</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-18">2026-11-18</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/anImestream" rel="noopener">anImestream</a>
+          <span class="desc">An app to stream and download anime for ios &amp; android</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">Dart</td>
+        <td data-label="License"><span class="badge muted">GPL-3.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-12">2026-11-12</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/Reve" rel="noopener">Reve</a>
+          <span class="desc">&nbsp;</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">HTML</td>
+        <td data-label="License"><span class="badge muted">GPL-3.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-11">2026-11-11</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/C" rel="noopener">C</a>
+          <span class="desc">Storage bucket managed by reve</span>
+        </td>
+        <td data-label="Visibility"><span class="vis p">Private</span></td>
+        <td data-label="Stack">—</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-11">2026-11-11</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/anImestream-extensions" rel="noopener">anImestream-extensions</a>
+          <span class="desc">anImestream Format A extension catalog</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">JavaScript</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-06">2026-11-06</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/sofikuw.github.io" rel="noopener">sofikuw.github.io</a>
+          <span class="desc">&nbsp;</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">HTML</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-06">2026-11-06</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/Risk" rel="noopener">Risk</a>
+          <span class="desc">Clean RAM Cache And Stop Background Apps, Google Apps, Third Party Apps</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">Shell</td>
+        <td data-label="License"><span class="badge muted">MIT · upstream</span></td>
+        <td data-label="Updated"><time datetime="2026-11-03">2026-11-03</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/claim" rel="noopener">claim</a>
+          <span class="desc">Claim your free &lt;name&gt;.got-a.page subdomin: one JSON file, one pull request.</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">—</td>
+        <td data-label="License"><span class="badge muted">MIT · upstream</span></td>
+        <td data-label="Updated"><time datetime="2026-11-03">2026-11-03</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/creamy-base" rel="noopener">creamy-base</a>
+          <span class="desc">Creamy-Base bakery site, deployed on Cloudflare Pages with a saved Facebook feed fallback.</span>
+        </td>
+        <td data-label="Visibility"><span class="vis p">Private</span></td>
+        <td data-label="Stack">JavaScript</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-02">2026-11-02</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/MOSS" rel="noopener">MOSS</a>
+          <span class="desc">Flash custom splash screen on Samsung with this module.</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">Shell</td>
+        <td data-label="License"><span class="badge muted">GPL-3.0</span></td>
+        <td data-label="Updated"><time datetime="2026-11-01">2026-11-01</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/commit" rel="noopener">commit</a>
+          <span class="desc">A webpage to commit a hole folder as a zip.</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">HTML</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-10-31">2026-10-31</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/Apex-Cleaner" rel="noopener">Apex-Cleaner</a>
+          <span class="desc">&nbsp;</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">Shell</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-09-02">2026-09-02</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/Cloud-1" rel="noopener">Cloud-1</a>
+          <span class="desc">Free cloud service</span>
+        </td>
+        <td data-label="Visibility"><span class="vis p">Private</span></td>
+        <td data-label="Stack">JavaScript</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-08-22">2026-08-22</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/sofikuw" rel="noopener">sofikuw</a>
+          <span class="desc">&nbsp;</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">—</td>
+        <td data-label="License"><span class="badge own">Peakism 1.0</span></td>
+        <td data-label="Updated"><time datetime="2026-08-12">2026-08-12</time></td>
+      </tr>
+      <tr>
+        <td data-label="Project">
+          <a class="proj" href="https://github.com/sofikuw/PrimeThermal-vY.1-ArtisanROM-1" rel="noopener">PrimeThermal-vY.1-ArtisanROM-1</a>
+          <span class="desc">Adaptive thermal &amp; CPU manager for Samsung Galaxy S10 (Exynos 9820)</span>
+        </td>
+        <td data-label="Visibility"><span class="vis ">Public</span></td>
+        <td data-label="Stack">Shell</td>
+        <td data-label="License"><span class="badge muted">none · upstream</span></td>
+        <td data-label="Updated"><time datetime="2026-07-24">2026-07-24</time></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cols">
+    <section class="card">
+      <div class="card-h"><h2>Licensing</h2><p>Peakism Proprietary License 1.0</p></div>
+      <dl>
+        <dt>Owned code</dt>
+        <dd>All rights reserved. Reading and evaluation only — no reuse, redistribution or deployment without written permission. Full text: <a href="https://github.com/sofikuw/peakism/blob/main/LICENSE">LICENSE</a>.</dd>
+        <dt>GPL-3.0 projects</dt>
+        <dd>Reve, MOSS and the anImestream fork stay GPL-3.0. Copyleft cannot be unilaterally replaced while upstream or contributor code remains.</dd>
+        <dt>Forks and upstream</dt>
+        <dd>Risk and claim keep their MIT notices; PrimeThermal has no upstream license, so it inherits nothing. Relicensing those needs the upstream authors.</dd>
+        <dt>Contribution rule</dt>
+        <dd>Inbound changes are assigned to Peakism before merge, so the org license stays intact.</dd>
+      </dl>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><h2>Endpoints</h2><p>live</p></div>
+      <dl>
+        <dt>Public page</dt>
+        <dd><a href="https://peakism.pages.dev">peakism.pages.dev</a><br>
+            <a href="https://sofikuw.github.io/peakism/">sofikuw.github.io/peakism</a></dd>
+        <dt>This dashboard</dt>
+        <dd><a href="https://peakism-private.sofikuw.workers.dev">peakism-private.sofikuw.workers.dev</a></dd>
+        <dt>Source</dt>
+        <dd><a href="https://github.com/sofikuw/peakism">github.com/sofikuw/peakism</a></dd>
+        <dt>Domain plan</dt>
+        <dd>Applying through open-domains with the public page as proof of presence. Access (email OTP) gets added once a zone exists in Cloudflare.</dd>
+      </dl>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Peakism</span>
+  <span>Internal — do not share outside the org</span>
+</footer>
+</body>
+</html>
