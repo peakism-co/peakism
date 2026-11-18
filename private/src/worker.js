@@ -28,7 +28,9 @@ export default {
 
     const asset = await env.ASSETS.fetch(request);
     const res = new Response(asset.body, asset);
-    res.headers.set('Cache-Control', 'no-store');
+    res.headers.set('Cache-Control', 'no-store, private');
+    res.headers.set('CDN-Cache-Control', 'no-store');
+    res.headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
     res.headers.set('X-Robots-Tag', 'noindex, nofollow');
     res.headers.set('X-Content-Type-Options', 'nosniff');
     res.headers.set('X-Frame-Options', 'DENY');
