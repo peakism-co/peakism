@@ -1,13 +1,14 @@
 # ∧ Peakism
 
-Peakism is an independent, for-profit organisation. It builds software, makes
-content, and runs the systems behind both.
+Peakism is an independent, for-profit organisation. **We do everything** —
+software, content, systems, and whatever comes next. It is, plainly, an
+organisation of the unemployed.
 
 - **Site** — https://peakism.pages.dev
 - **GitHub** — https://github.com/peakism-co
 - **Contact** — 84sofik@gmail.com
 
-## What we do
+## What that has meant so far
 
 | Area | What it means |
 | --- | --- |
