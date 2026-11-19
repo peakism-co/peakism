@@ -1,7 +1,7 @@
 # ∧ Peakism
 
-Peakism is an independent, for-profit software studio. We build small, fast,
-careful software — apps, services, and the infrastructure underneath them.
+Peakism is an independent, for-profit organisation. It builds software, makes
+content, and runs the systems behind both.
 
 - **Site** — https://peakism.pages.dev
 - **GitHub** — https://github.com/peakism-co
@@ -11,9 +11,14 @@ careful software — apps, services, and the infrastructure underneath them.
 
 | Area | What it means |
 | --- | --- |
-| **Apps** | Tools people keep open all day. Native where it matters, quiet everywhere else. |
+| **Software** | Apps and tools people keep open all day. Native where it matters, quiet everywhere else. |
+| **Content** | Writing, video and visuals, made in-house and published under our own name. |
 | **Systems** | APIs, services and cloud pieces that stay up without a team watching them. |
-| **Extensions** | Small parts that make other software better, shipped as formats others can build on. |
+
+## Ownership
+
+Peakism is privately held. Earnings are shared among its holders. Nothing is
+offered for sale here, and no outside investment is solicited.
 
 ## Projects
 

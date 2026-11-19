@@ -2,6 +2,18 @@
 
 Internal. Not linked from the public page, not part of the public story.
 
+## Structure
+
+Privately held, for-profit. Earnings are shared among the holders.
+
+A GitHub org cannot hold money, sign contracts, or distribute anything — it is
+only a namespace. So before any revenue exists, this needs a real entity
+(company or partnership) and a written holder agreement covering: who holds
+what percentage, how distributions are decided, what happens when someone
+leaves, and who signs. Public wording stays vague until then; a public
+"profits are shared with holders" claim with no entity behind it is an
+unsecured promise.
+
 ## What runs where
 
 | Thing | Address | Host |
