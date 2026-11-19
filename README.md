@@ -48,8 +48,8 @@ licence they shipped with.
 
 ## This repository
 
-`LICENSE` is the org-wide licence. `site/` is the public page, served by both
-Cloudflare Pages and GitHub Pages. `brand/mark.svg` is the mark. Operational
+`LICENSE` is the org-wide licence. `docs/` is the public page, served by both Cloudflare Pages and GitHub Pages
+(the folder name is what GitHub Pages will serve). `brand/mark.svg` is the mark. Operational
 notes live in [`private/README.md`](private/README.md), which is not part of the
 public story.
 

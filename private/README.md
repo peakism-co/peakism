@@ -18,7 +18,7 @@ unsecured promise.
 
 | Thing | Address | Host |
 | --- | --- | --- |
-| Public page | https://peakism.pages.dev | Cloudflare Pages, project `peakism`, root `site/` |
+| Public page | https://peakism.pages.dev | Cloudflare Pages, project `peakism`, folder `docs/` |
 | Public page (mirror) | https://peakism-co.github.io/peakism/ | GitHub Pages, this repo |
 | Dashboard | https://peakism-private.sofikuw.workers.dev | Cloudflare Worker, Basic Auth |
 
@@ -32,7 +32,7 @@ Both need `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
 Public page:
 
 ```bash
-npx wrangler pages deploy site --project-name peakism --branch main
+npx wrangler pages deploy docs --project-name peakism --branch main
 ```
 
 Dashboard — `private/` holds its own `wrangler.toml`:
