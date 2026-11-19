@@ -4,7 +4,8 @@ Peakism is an independent, for-profit organisation. **We do everything** —
 software, content, systems, and whatever comes next. It is, plainly, an
 organisation of the unemployed.
 
-- **Site** — https://peakism.pages.dev
+- **Site** — https://peakism.is-local.org
+- **Mirror** — https://peakism.pages.dev
 - **GitHub** — https://github.com/peakism-co
 - **Contact** — 84sofik@gmail.com
 

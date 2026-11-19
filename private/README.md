@@ -18,8 +18,8 @@ unsecured promise.
 
 | Thing | Address | Host |
 | --- | --- | --- |
-| Public page | https://peakism.pages.dev | Cloudflare Pages, project `peakism`, folder `docs/` |
-| Public page (mirror) | https://peakism-co.github.io/peakism/ | GitHub Pages, this repo |
+| Public page | https://peakism.is-local.org | GitHub Pages, repo `docs/`, custom domain on Open Domains `is-local.org` |
+| Mirror | https://peakism.pages.dev | Cloudflare Pages, project `peakism`, folder `docs/` |
 | Dashboard | https://peakism-private.sofikuw.workers.dev | Cloudflare Worker, Basic Auth |
 
 Cloudflare account `1777002bf434878092e51eda7270ee97`, workers.dev subdomain
