@@ -1,63 +1,53 @@
-# Peaqism
+# ∧ Peakism
 
-Brand, license and web presence for **Peaqism** — an independent, for-profit software studio.
+Peakism is an independent, for-profit software studio. We build small, fast,
+careful software — apps, services, and the infrastructure underneath them.
 
-Mark: `∧` · Contact: 84sofik@gmail.com
+- **Site** — https://peakism.pages.dev
+- **GitHub** — https://github.com/peakism-co
+- **Contact** — 84sofik@gmail.com
 
-## Layout
+## What we do
 
-| Path | What it is |
+| Area | What it means |
 | --- | --- |
-| `LICENSE` | Peaqism Proprietary License 1.0 — the org-wide license |
-| `brand/mark.svg` | the `∧` mark |
-| `site/` | public "under construction" page — Cloudflare Pages and GitHub Pages |
-| `private/` | password-protected internal dashboard — Cloudflare Worker |
+| **Apps** | Tools people keep open all day. Native where it matters, quiet everywhere else. |
+| **Systems** | APIs, services and cloud pieces that stay up without a team watching them. |
+| **Extensions** | Small parts that make other software better, shipped as formats others can build on. |
 
-## Deploy
+## Projects
 
-Public page:
+| Project | What it is | Licence |
+| --- | --- | --- |
+| [anImestream](https://github.com/sofikuw/anImestream) | Android client for streaming and reading manga | GPL-3.0 |
+| [Reve](https://github.com/sofikuw/Reve) | GitHub-backed file manager and media browser | Peakism 1.0 |
+| [MOSS](https://github.com/sofikuw/MOSS) | Android app | Peakism 1.0 |
+| [anImestream-extensions](https://github.com/sofikuw/anImestream-extensions) | Extension catalogue for anImestream | Peakism 1.0 |
+| [commit](https://github.com/sofikuw/commit) | Commit-message tooling | Peakism 1.0 |
+| [Risk](https://github.com/sofikuw/Risk) | Board-game implementation | MIT |
+| [claim](https://github.com/sofikuw/claim) | Claim tooling | MIT |
 
-```bash
-npx wrangler pages deploy site --project-name peaqism --branch main
-```
+## Licence
 
-Private dashboard (`private/` holds its own `wrangler.toml`):
+Owned code is released under the **Peakism Proprietary License 1.0** — see
+[`LICENSE`](LICENSE). In short: you may read, clone and run it privately, and
+you may send us changes. You may not reuse, redistribute, or deploy it without
+written permission.
 
-```bash
-cd private
-npx wrangler secret put PEAQISM_USER
-npx wrangler secret put PEAQISM_PASS
-npx wrangler deploy
-```
+Forks and third-party components keep their upstream terms. GPL-3.0 code cannot
+be relicensed unilaterally, and MIT or Unlicense forks keep their upstream
+notices. Releases published before a relicence remain available under the
+licence they shipped with.
 
-Both need `CLOUDFLARE_API_TOKEN` and use account `1777002bf434878092e51eda7270ee97`.
+`Peakism` and the `∧` mark are trademarks of Peakism.
 
-## Domains
+## This repository
 
-| Address | Where it comes from |
-| --- | --- |
-| `peaqism.pages.dev` | Cloudflare Pages, project `peaqism` |
-| `peaqism.github.io/peaqism` | GitHub Pages, org repo |
-| `peaqism-private.sofikuw.workers.dev` | Cloudflare Worker, password-gated |
-| `peaqism.runs-on.dev` | claimed 2026-11-18 — `A` + `MX` + `TXT`, PR 461 |
+`LICENSE` is the org-wide licence. `site/` is the public page, served by both
+Cloudflare Pages and GitHub Pages. `brand/mark.svg` is the mark. Operational
+notes live in [`private/README.md`](private/README.md), which is not part of the
+public story.
 
-`peaqism.runs-on.dev` is a free subdomain from the [runs-on.dev](https://runs-on.dev)
-registry. It was chosen over is-a.dev, is-a-good.dev, rweb.site and foo.ng because
-those either ban commercial use or only allow one record type, while runs-on.dev
-accepts `A` + `MX` + `TXT` on the same name, which is what a mail-capable address
-needs. The claim lives in `domains/peaqism.json` in that registry.
+---
 
-Once merged:
-
-1. GitHub Pages → `peaqism/peaqism` → custom domain `peaqism.runs-on.dev` (the `A` records already point there).
-2. Add `peaqism.runs-on.dev` at [ImprovMX](https://improvmx.com) and create the alias — the `MX` records are already published.
-3. `peaqism.dev` / `.com` stay the real long-term purchase; this is a stopgap that costs nothing.
-
-## Licensing
-
-Owned code is licensed under the Peaqism Proprietary License 1.0 (see `LICENSE`).
-Forks and third-party components keep their upstream terms — GPL-3.0 repos cannot be
-relicensed unilaterally, and MIT/Unlicense forks must keep their upstream notices.
-That is recorded in the private dashboard, not negotiated per repo.
-
-This README is not legal advice.
+© 2026 Peakism. All rights reserved.
