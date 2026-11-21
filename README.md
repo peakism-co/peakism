@@ -24,15 +24,13 @@ offered for sale here, and no outside investment is solicited.
 
 ## Projects
 
-| Project | What it is | Licence |
-| --- | --- | --- |
-| [anImestream](https://github.com/sofikuw/anImestream) | Android client for streaming and reading manga | GPL-3.0 |
-| [Reve](https://github.com/sofikuw/Reve) | GitHub-backed file manager and media browser | Peakism 1.0 |
-| [MOSS](https://github.com/sofikuw/MOSS) | Samsung boot splash and pre-boot images | Peakism 1.0 |
-| [anImestream-extensions](https://github.com/sofikuw/anImestream-extensions) | Provider catalogue for anImestream | MIT |
-| [commit](https://github.com/sofikuw/commit) | Commit a folder to GitHub as a zip, in the browser | Peakism 1.0 |
-| [Risk](https://github.com/sofikuw/Risk) | Board-game implementation | MIT |
-| [claim](https://github.com/sofikuw/claim) | Claim tooling | MIT |
+The work we own, all under the same licence.
+
+| Project | What it is |
+| --- | --- |
+| [Reve](https://github.com/sofikuw/Reve) | GitHub-backed file manager and media browser, web and Flutter |
+| [MOSS](https://github.com/sofikuw/MOSS) | Samsung boot splash and pre-boot images |
+| [commit](https://github.com/sofikuw/commit) | Commit a folder to GitHub as a zip, in the browser |
 
 ## Licence
 
@@ -41,16 +39,8 @@ Owned code is released under the **Peakism Proprietary License 1.0** — see
 you may send us changes. You may not reuse, redistribute, or deploy it without
 written permission.
 
-Forks and third-party components keep their upstream terms. GPL-3.0 code cannot
-be relicensed unilaterally, and MIT or Unlicense forks keep their upstream
-notices. Releases published before a relicence remain available under the
-licence they shipped with.
-
-Add-ons that only exist alongside someone else's work stay permissive rather
-than proprietary — `anImestream-extensions` is MIT, so it can be loaded by the
-GPL-3.0 app without touching the app's terms.
-
-`Peakism` and the `∧` mark are trademarks of Peakism.
+Anything we did not write keeps its own terms, and releases published before a
+relicence remain available under the licence they shipped with.
 
 ## This repository
 
