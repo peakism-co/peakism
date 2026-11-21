@@ -28,9 +28,9 @@ offered for sale here, and no outside investment is solicited.
 | --- | --- | --- |
 | [anImestream](https://github.com/sofikuw/anImestream) | Android client for streaming and reading manga | GPL-3.0 |
 | [Reve](https://github.com/sofikuw/Reve) | GitHub-backed file manager and media browser | Peakism 1.0 |
-| [MOSS](https://github.com/sofikuw/MOSS) | Android app | Peakism 1.0 |
-| [anImestream-extensions](https://github.com/sofikuw/anImestream-extensions) | Extension catalogue for anImestream | Peakism 1.0 |
-| [commit](https://github.com/sofikuw/commit) | Commit-message tooling | Peakism 1.0 |
+| [MOSS](https://github.com/sofikuw/MOSS) | Samsung boot splash and pre-boot images | Peakism 1.0 |
+| [anImestream-extensions](https://github.com/sofikuw/anImestream-extensions) | Provider catalogue for anImestream | MIT |
+| [commit](https://github.com/sofikuw/commit) | Commit a folder to GitHub as a zip, in the browser | Peakism 1.0 |
 | [Risk](https://github.com/sofikuw/Risk) | Board-game implementation | MIT |
 | [claim](https://github.com/sofikuw/claim) | Claim tooling | MIT |
 
@@ -45,6 +45,10 @@ Forks and third-party components keep their upstream terms. GPL-3.0 code cannot
 be relicensed unilaterally, and MIT or Unlicense forks keep their upstream
 notices. Releases published before a relicence remain available under the
 licence they shipped with.
+
+Add-ons that only exist alongside someone else's work stay permissive rather
+than proprietary — `anImestream-extensions` is MIT, so it can be loaded by the
+GPL-3.0 app without touching the app's terms.
 
 `Peakism` and the `∧` mark are trademarks of Peakism.
 

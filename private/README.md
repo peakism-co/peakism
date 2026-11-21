@@ -64,7 +64,7 @@ edge — two different versions alternating between requests. Do not remove them
 | `peakism-co/peakism` | Peakism 1.0 |
 | `sofikuw/MOSS` | Peakism 1.0 |
 | `sofikuw/Reve` | Peakism 1.0 |
-| `sofikuw/anImestream-extensions` | Peakism 1.0 |
+| `sofikuw/anImestream-extensions` | MIT — loaded by a GPL-3.0 app |
 | `sofikuw/commit` | Peakism 1.0 |
 | `sofikuw/anImestream` | GPL-3.0 — upstream fork |
 | `sofikuw/Risk`, `sofikuw/claim` | MIT — upstream |
